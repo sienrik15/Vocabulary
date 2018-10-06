@@ -4,12 +4,15 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: "androidx.navigation.safeargs"
+
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
         applicationId "com.example.queestudiar.vocabulary"
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -33,8 +36,9 @@ dependencies {
     // LiveData + ViewModel
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
     // Navigation
-    implementation 'androidx.navigation:navigation-fragment:' + rootProject.navigationVersion
-    implementation 'androidx.navigation:navigation-ui:' + rootProject.navigationVersion
+    implementation 'android.arch.navigation:navigation-fragment:' + rootProject.navigationVersion // use -ktx for Kotlin
+    implementation "android.arch.navigation:navigation-ui:$rootProject.navigationVersion" // use -ktx for Kotlin
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
